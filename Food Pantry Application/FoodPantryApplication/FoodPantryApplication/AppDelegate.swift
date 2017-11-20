@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         //Configure the Firebase Service
-        
         FirebaseApp.configure()
     
         return true
