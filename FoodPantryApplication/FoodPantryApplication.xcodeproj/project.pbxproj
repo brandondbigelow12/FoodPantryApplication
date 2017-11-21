@@ -10,6 +10,7 @@
 		06BA83696A51740328652A4D /* Pods_FoodPantryApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0566A35B7AF364380762456F /* Pods_FoodPantryApplication.framework */; };
 		5325D1AA1FBE95220081278D /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5325D1A91FBE95220081278D /* CreateAccountView.swift */; };
 		5325D1CE1FC283BC0081278D /* PantrySelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5325D1CD1FC283BC0081278D /* PantrySelection.swift */; };
+		5380C54D1FC3D641001F4909 /* InventoryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5380C54C1FC3D641001F4909 /* InventoryPage.swift */; };
 		53D13F031FBE7D8000441943 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D13F021FBE7D8000441943 /* AppDelegate.swift */; };
 		53D13F051FBE7D8000441943 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D13F041FBE7D8000441943 /* LoginView.swift */; };
 		53D13F081FBE7D8000441943 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D13F061FBE7D8000441943 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 		2D01043683D445A60CD4F8E9 /* Pods-FoodPantryApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodPantryApplication.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoodPantryApplication/Pods-FoodPantryApplication.release.xcconfig"; sourceTree = "<group>"; };
 		5325D1A91FBE95220081278D /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		5325D1CD1FC283BC0081278D /* PantrySelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantrySelection.swift; sourceTree = "<group>"; };
+		5380C54C1FC3D641001F4909 /* InventoryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryPage.swift; sourceTree = "<group>"; };
 		53D13EFF1FBE7D8000441943 /* FoodPantryApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPantryApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53D13F021FBE7D8000441943 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53D13F041FBE7D8000441943 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				53D13F021FBE7D8000441943 /* AppDelegate.swift */,
 				53D13F041FBE7D8000441943 /* LoginView.swift */,
 				53D13F061FBE7D8000441943 /* Main.storyboard */,
+				5380C54C1FC3D641001F4909 /* InventoryPage.swift */,
 				5325D1CD1FC283BC0081278D /* PantrySelection.swift */,
 				5325D1A91FBE95220081278D /* CreateAccountView.swift */,
 				53D13F091FBE7D8000441943 /* Assets.xcassets */,
@@ -207,12 +210,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-FoodPantryApplication/Pods-FoodPantryApplication-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5325D1AA1FBE95220081278D /* CreateAccountView.swift in Sources */,
+				5380C54D1FC3D641001F4909 /* InventoryPage.swift in Sources */,
 				5325D1CE1FC283BC0081278D /* PantrySelection.swift in Sources */,
 				53D13F051FBE7D8000441943 /* LoginView.swift in Sources */,
 				53D13F031FBE7D8000441943 /* AppDelegate.swift in Sources */,
