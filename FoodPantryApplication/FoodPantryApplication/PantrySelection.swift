@@ -10,59 +10,68 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseDatabase
-
-
+import Alamofire
 
 class PantrySelection : UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
 
     var userEmail = String()
     var SelectedOrganization = String()
-    let Organizations =  ["OLG" , "Full Sail" , "Holy Name"]
+    
+    var Organizations =  [String!]()
+    
+    //var Organizations = ["Hello","Test", "Yes"]
     
     @IBOutlet var welcomeBanner: UILabel!
     @IBOutlet var pantrySelectionLabel: UILabel!
 
     @IBOutlet var PickerWheel: UIPickerView!
     
-    //Database
-    var ref: DatabaseReference!
     let databaseRef = Database.database().reference()
-    
-    @IBOutlet var conditionLabel: UILabel!
-    var tempOrganization : String! = nil
+    var databaseHandle : DatabaseHandle!
     
     override func viewDidLoad()
     {
-        
         super.viewDidLoad()
         welcomeBanner.text = "Welcome " + userEmail
-        
+        getFirebaseData()
+        //post()
     }
     
+    func getFirebaseData()
+    {
+            self.databaseRef.child("Pantries").observe(.childAdded, with: { ( snapshot) in
+
+            //self.Organizations.append(snapshot.key)
+
+                if let snapDict = snapshot.key as? String!
+                {
+                    self.Organizations.append(snapDict as String!)
+                    print(snapDict)
+                }
+                self.PickerWheel.reloadAllComponents()
+            })
+    }
     
     func post()
     {
-        
-        let Message = "Food pantry items"
-        let imageURL = "Test Image URL"
-        let quantity = "89"
-        
-        let post : [String : AnyObject] = [
-                                            "Message" : Message as AnyObject,
-                                            "ImageURL" : imageURL as AnyObject,
-                                            "Quantity" : quantity as AnyObject]
-        
-        databaseRef.child("\(tempOrganization)/Items").childByAutoId().setValue(post)
+        let x  = postItemsToFirebase()
+        x.postItemToFirebase(organization: "OLG")
     }
     
+
+    func loadPantryLocationFromFirebase()
+    {
+        print("View of my pantries!")
+        print(Organizations)
+    }
+
+
     //PickerView
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        pantrySelectionLabel.text = Organizations[row]
-        tempOrganization = pantrySelectionLabel.text
         return Organizations[row]
     }
     
@@ -73,14 +82,15 @@ class PantrySelection : UIViewController, UIPickerViewDataSource, UIPickerViewDe
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         pantrySelectionLabel.text = Organizations[row]
-        tempOrganization = pantrySelectionLabel.text
+       
     }
+    
     
     //Button that will load specified Organization's inventory on the next page
     @IBAction func viewInventoryButton(_ sender: Any)
     {
+            SelectedOrganization = pantrySelectionLabel.text!
             performSegue(withIdentifier: "goToInventory", sender: nil)
-            post()
     }
     
     override func prepare(for segue : UIStoryboardSegue, sender : Any?)
@@ -91,18 +101,7 @@ class PantrySelection : UIViewController, UIPickerViewDataSource, UIPickerViewDe
     }
     
     
-//    @IBAction func updateDatabase(_ sender: Any) {
-//
-//        let Message = "WEEE "
-//        let imageURL = "This worked!"
-//        let quantity = "100"
-//
-//        let post : [String : AnyObject ] = [
-//            "Message" : Message as AnyObject,
-//            "ImageURL" : imageURL as AnyObject,
-//            "Quantity" : quantity as AnyObject]
-//
-//        databaseRef.child("\(Organization)/Items").childByAutoId().updateChildValues(post)
+
     
       
         

@@ -10,12 +10,16 @@
 		06BA83696A51740328652A4D /* Pods_FoodPantryApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0566A35B7AF364380762456F /* Pods_FoodPantryApplication.framework */; };
 		5325D1AA1FBE95220081278D /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5325D1A91FBE95220081278D /* CreateAccountView.swift */; };
 		5325D1CE1FC283BC0081278D /* PantrySelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5325D1CD1FC283BC0081278D /* PantrySelection.swift */; };
+		53536EA51FC4F2E600177651 /* postItemsToFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53536EA41FC4F2E600177651 /* postItemsToFirebase.swift */; };
+		535F08F51FCA882B0083B86A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535F08F61FCA882B0083B86A /* Alamofire.framework */; };
 		5380C54D1FC3D641001F4909 /* InventoryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5380C54C1FC3D641001F4909 /* InventoryPage.swift */; };
 		53D13F031FBE7D8000441943 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D13F021FBE7D8000441943 /* AppDelegate.swift */; };
 		53D13F051FBE7D8000441943 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D13F041FBE7D8000441943 /* LoginView.swift */; };
 		53D13F081FBE7D8000441943 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D13F061FBE7D8000441943 /* Main.storyboard */; };
 		53D13F0A1FBE7D8000441943 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53D13F091FBE7D8000441943 /* Assets.xcassets */; };
 		53D13F0D1FBE7D8000441943 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D13F0B1FBE7D8000441943 /* LaunchScreen.storyboard */; };
+		53EBA0B91FC4EFBB00C57DB4 /* BarcodeReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EBA0B81FC4EFBB00C57DB4 /* BarcodeReading.swift */; };
+		53EEAF541FCA77F7000E533B /* InventoryPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EEAF531FCA77F7000E533B /* InventoryPageTableViewCell.swift */; };
 		53F2BCF01FBE87F700FB3256 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F2BCEF1FBE87F700FB3256 /* GoogleToolboxForMac.framework */; };
 		53F2BCF21FBE87FB00FB3256 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F2BCF11FBE87FB00FB3256 /* GTMSessionFetcher.framework */; };
 		53F2BCF41FBE87FE00FB3256 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F2BCF31FBE87FE00FB3256 /* nanopb.framework */; };
@@ -27,6 +31,9 @@
 		2D01043683D445A60CD4F8E9 /* Pods-FoodPantryApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodPantryApplication.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoodPantryApplication/Pods-FoodPantryApplication.release.xcconfig"; sourceTree = "<group>"; };
 		5325D1A91FBE95220081278D /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		5325D1CD1FC283BC0081278D /* PantrySelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantrySelection.swift; sourceTree = "<group>"; };
+		53536EA41FC4F2E600177651 /* postItemsToFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = postItemsToFirebase.swift; sourceTree = "<group>"; };
+		535F08F41FCA875D0083B86A /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		535F08F61FCA882B0083B86A /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5380C54C1FC3D641001F4909 /* InventoryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryPage.swift; sourceTree = "<group>"; };
 		53D13EFF1FBE7D8000441943 /* FoodPantryApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPantryApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53D13F021FBE7D8000441943 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +42,8 @@
 		53D13F091FBE7D8000441943 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53D13F0C1FBE7D8000441943 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53D13F0E1FBE7D8000441943 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53EBA0B81FC4EFBB00C57DB4 /* BarcodeReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeReading.swift; sourceTree = "<group>"; };
+		53EEAF531FCA77F7000E533B /* InventoryPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryPageTableViewCell.swift; sourceTree = "<group>"; };
 		53F2BCEF1FBE87F700FB3256 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleToolboxForMac.framework; path = "../../../Library/Developer/Xcode/DerivedData/FoodPantryApplication-azuqobogzujpxqgblmatwevcckzl/Build/Products/Debug-iphonesimulator/GoogleToolboxForMac/GoogleToolboxForMac.framework"; sourceTree = "<group>"; };
 		53F2BCF11FBE87FB00FB3256 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GTMSessionFetcher.framework; path = "../../../Library/Developer/Xcode/DerivedData/FoodPantryApplication-azuqobogzujpxqgblmatwevcckzl/Build/Products/Debug-iphonesimulator/GTMSessionFetcher/GTMSessionFetcher.framework"; sourceTree = "<group>"; };
 		53F2BCF31FBE87FE00FB3256 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = nanopb.framework; path = "../../../Library/Developer/Xcode/DerivedData/FoodPantryApplication-azuqobogzujpxqgblmatwevcckzl/Build/Products/Debug-iphonesimulator/nanopb/nanopb.framework"; sourceTree = "<group>"; };
@@ -47,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				535F08F51FCA882B0083B86A /* Alamofire.framework in Frameworks */,
 				53F2BCF41FBE87FE00FB3256 /* nanopb.framework in Frameworks */,
 				53F2BCF21FBE87FB00FB3256 /* GTMSessionFetcher.framework in Frameworks */,
 				53F2BCF01FBE87F700FB3256 /* GoogleToolboxForMac.framework in Frameworks */,
@@ -82,7 +92,10 @@
 				53D13F041FBE7D8000441943 /* LoginView.swift */,
 				53D13F061FBE7D8000441943 /* Main.storyboard */,
 				5380C54C1FC3D641001F4909 /* InventoryPage.swift */,
+				53EEAF531FCA77F7000E533B /* InventoryPageTableViewCell.swift */,
 				5325D1CD1FC283BC0081278D /* PantrySelection.swift */,
+				53536EA41FC4F2E600177651 /* postItemsToFirebase.swift */,
+				53EBA0B81FC4EFBB00C57DB4 /* BarcodeReading.swift */,
 				5325D1A91FBE95220081278D /* CreateAccountView.swift */,
 				53D13F091FBE7D8000441943 /* Assets.xcassets */,
 				53D13F0B1FBE7D8000441943 /* LaunchScreen.storyboard */,
@@ -104,6 +117,8 @@
 		E6E51917521D70236451CFC4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				535F08F61FCA882B0083B86A /* Alamofire.framework */,
+				535F08F41FCA875D0083B86A /* Alamofire.framework */,
 				53F2BCF31FBE87FE00FB3256 /* nanopb.framework */,
 				53F2BCF11FBE87FB00FB3256 /* GTMSessionFetcher.framework */,
 				53F2BCEF1FBE87F700FB3256 /* GoogleToolboxForMac.framework */,
@@ -142,7 +157,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Brandon Bigelow";
 				TargetAttributes = {
 					53D13EFE1FBE7D8000441943 = {
@@ -208,6 +223,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FoodPantryApplication/Pods-FoodPantryApplication-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -215,6 +231,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -250,11 +267,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53536EA51FC4F2E600177651 /* postItemsToFirebase.swift in Sources */,
 				5325D1AA1FBE95220081278D /* CreateAccountView.swift in Sources */,
+				53EEAF541FCA77F7000E533B /* InventoryPageTableViewCell.swift in Sources */,
 				5380C54D1FC3D641001F4909 /* InventoryPage.swift in Sources */,
 				5325D1CE1FC283BC0081278D /* PantrySelection.swift in Sources */,
 				53D13F051FBE7D8000441943 /* LoginView.swift in Sources */,
 				53D13F031FBE7D8000441943 /* AppDelegate.swift in Sources */,
+				53EBA0B91FC4EFBB00C57DB4 /* BarcodeReading.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +310,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -298,7 +320,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -340,7 +366,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -348,7 +376,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -383,7 +415,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BrandonBigelow.FoodPantryApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -398,7 +430,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BrandonBigelow.FoodPantryApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

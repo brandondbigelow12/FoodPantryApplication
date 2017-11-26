@@ -75,7 +75,7 @@ class LoginView: UIViewController {
     
     override func prepare(for segue : UIStoryboardSegue, sender : Any?)
     {
-        var SecondController = segue.destination as! PantrySelection
+        let SecondController = segue.destination as! PantrySelection
         SecondController.userEmail = userEmail
         
     }
