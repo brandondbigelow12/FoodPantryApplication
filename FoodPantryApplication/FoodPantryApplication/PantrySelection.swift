@@ -15,7 +15,11 @@ import Alamofire
 class PantrySelection : UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
 
     var userEmail = String()
+    var GoogleUserEmail = String()
     var SelectedOrganization = String()
+    
+    @IBOutlet var userProfilePicture: UIImageView!
+    
     
     var Organizations =  [String!]()
     
@@ -32,10 +36,57 @@ class PantrySelection : UIViewController, UIPickerViewDataSource, UIPickerViewDe
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        welcomeBanner.text = "Welcome " + userEmail
+        
+        Greeting()
         getFirebaseData()
-        //post()
+    
     }
+    @IBAction func logoutButton(_ sender: Any) {
+       
+        
+    }
+    
+    func Greeting()
+    {
+        if(GoogleUser.getGoogleUserEmail().isEmpty)
+        {
+            welcomeBanner.text = "Welcome \(userEmail)" as String!
+            self.userProfilePicture.layer.cornerRadius = self.userProfilePicture.frame.size.width / 2
+            self.userProfilePicture.clipsToBounds = true
+            self.userProfilePicture.image = #imageLiteral(resourceName: "puppy")
+        }
+        else
+        {
+            welcomeBanner.text = "Welcome \(GoogleUser.getGoogleUserEmail()!)" as String!
+            
+            if let url = GoogleUser.getGoogleProfileImage()
+            {
+                
+                let urlRequest = URLRequest(url: url)
+                
+                let session = URLSession.shared
+                
+                session.dataTask(with: urlRequest){
+                    (data, response, err) in
+                    
+                    if err != nil {
+                        print("ERROR \(err!)")
+                        return
+                    }
+                    DispatchQueue.main.async
+                        {
+                            self.userProfilePicture.layer.cornerRadius = self.userProfilePicture.frame.size.width / 2
+                            self.userProfilePicture.clipsToBounds = true
+                            
+                            self.userProfilePicture.image = UIImage(data: data!)
+                            
+                    }
+                    }.resume()
+            }
+            
+        }
+    }
+
     
     func getFirebaseData()
     {
@@ -85,12 +136,11 @@ class PantrySelection : UIViewController, UIPickerViewDataSource, UIPickerViewDe
        
     }
     
-    
     //Button that will load specified Organization's inventory on the next page
     @IBAction func viewInventoryButton(_ sender: Any)
     {
             SelectedOrganization = pantrySelectionLabel.text!
-            performSegue(withIdentifier: "goToInventory", sender: nil)
+            performSegue(withIdentifier: "inventoryPage", sender: nil)
     }
     
     override func prepare(for segue : UIStoryboardSegue, sender : Any?)

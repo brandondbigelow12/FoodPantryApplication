@@ -11,8 +11,6 @@ import UIKit
 import FirebaseDatabase
 import Firebase
 
-
-
 class InventoryPage : UIViewController, UITableViewDelegate, UITableViewDataSource
 {
     var SelectedOrganization = String()
@@ -30,8 +28,6 @@ class InventoryPage : UIViewController, UITableViewDelegate, UITableViewDataSour
     {
         super.viewDidLoad()
         
-        
-        
         databaseRef.database.reference().child("Pantries/OLG/Items/").observe(.childAdded, with: { ( snapshot) in
             
             if let snapDict = snapshot.value as? NSDictionary
@@ -47,9 +43,7 @@ class InventoryPage : UIViewController, UITableViewDelegate, UITableViewDataSour
            
         })
     }
-        
-   
-    
+         
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {

@@ -24,6 +24,7 @@
 		53F2BCF21FBE87FB00FB3256 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F2BCF11FBE87FB00FB3256 /* GTMSessionFetcher.framework */; };
 		53F2BCF41FBE87FE00FB3256 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F2BCF31FBE87FE00FB3256 /* nanopb.framework */; };
 		53F2BCF61FBE890200FB3256 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53F2BCF51FBE890200FB3256 /* GoogleService-Info.plist */; };
+		53FCA31A1FCB61E4006FF820 /* GoogleUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FCA3191FCB61E4006FF820 /* GoogleUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		53F2BCF11FBE87FB00FB3256 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GTMSessionFetcher.framework; path = "../../../Library/Developer/Xcode/DerivedData/FoodPantryApplication-azuqobogzujpxqgblmatwevcckzl/Build/Products/Debug-iphonesimulator/GTMSessionFetcher/GTMSessionFetcher.framework"; sourceTree = "<group>"; };
 		53F2BCF31FBE87FE00FB3256 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = nanopb.framework; path = "../../../Library/Developer/Xcode/DerivedData/FoodPantryApplication-azuqobogzujpxqgblmatwevcckzl/Build/Products/Debug-iphonesimulator/nanopb/nanopb.framework"; sourceTree = "<group>"; };
 		53F2BCF51FBE890200FB3256 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		53FCA3191FCB61E4006FF820 /* GoogleUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleUser.swift; sourceTree = "<group>"; };
 		96515576D8FF9D3178BBDF67 /* Pods-FoodPantryApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodPantryApplication.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoodPantryApplication/Pods-FoodPantryApplication.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				53D13F021FBE7D8000441943 /* AppDelegate.swift */,
+				53FCA3191FCB61E4006FF820 /* GoogleUser.swift */,
 				53D13F041FBE7D8000441943 /* LoginView.swift */,
 				53D13F061FBE7D8000441943 /* Main.storyboard */,
 				5380C54C1FC3D641001F4909 /* InventoryPage.swift */,
@@ -207,9 +210,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FoodPantryApplication/Pods-FoodPantryApplication-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -224,6 +230,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FoodPantryApplication/Pods-FoodPantryApplication-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -232,6 +239,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -267,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53FCA31A1FCB61E4006FF820 /* GoogleUser.swift in Sources */,
 				53536EA51FC4F2E600177651 /* postItemsToFirebase.swift in Sources */,
 				5325D1AA1FBE95220081278D /* CreateAccountView.swift in Sources */,
 				53EEAF541FCA77F7000E533B /* InventoryPageTableViewCell.swift in Sources */,

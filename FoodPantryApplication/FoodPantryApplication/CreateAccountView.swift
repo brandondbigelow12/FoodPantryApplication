@@ -20,11 +20,21 @@ class CreateAccountView: UIViewController {
     
     @IBOutlet var passwordField: UITextField!
     
+    @IBOutlet var confirmPasswordField: UITextField!
     
     @IBAction func CreateFirebaseAccount(_ sender: UIButton) {
         if(emailField.text == nil || passwordField.text == nil)
         {
             print("Fields were empty")
+        }
+        else if (passwordField.text != confirmPasswordField.text)
+        {
+            let alertController = UIAlertController(title: "Whoops!", message: "Passwords do not match!", preferredStyle: .alert)
+            
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            self.present(alertController, animated: true, completion: nil)
         }
         else
         {
@@ -33,6 +43,8 @@ class CreateAccountView: UIViewController {
             if(error == nil)
             {
                 print("Created Account " + (user?.email)!)
+                self.performSegue(withIdentifier: "inventoryPage", sender: nil)
+                
             }
             else
             {
@@ -45,6 +57,15 @@ class CreateAccountView: UIViewController {
             }
             
             }
+        }
+    }
+    
+    override func prepare(for segue : UIStoryboardSegue, sender : Any?)
+    {
+        if segue.identifier == "inventoryPage"
+        {
+            let SecondController = segue.destination as! PantrySelection
+            SecondController.userEmail = emailField.text!
         }
     }
     
