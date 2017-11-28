@@ -9,20 +9,57 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
+import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
+    
+    let myNotificationKey = "com.FoodPantryApplication.GoogleSignIn"
     
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         //Configure the Firebase Service
-        
         FirebaseApp.configure()
-    
+        
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
+        
         return true
     }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+        // ...
+        if let error = error {
+            print("Failed to login with Google." , error)
+            // ...
+            return
+        }
+        print("Successfully logged into Google." , user)
+        
+        GoogleUser.setGoogleUserEmail(userEmail: user.profile.email)
+        GoogleUser.setGoogleProfileImage(userProfileImage: user.profile.imageURL(withDimension: 50) as URL!)
+        
+        guard let idToken = user.authentication.idToken else {return}
+        guard let accessToken = user.authentication.accessToken else {return}
+        let credentials = GoogleAuthProvider.credential(withIDToken : idToken, accessToken: accessToken)
+        
+        Auth.auth().signIn(with: credentials, completion: {(user, error) in
+            if let  err = error
+            {
+                print("Failed to create a Firebase user with Google account." , err)
+                return
+            }
+            print("Successfully logged in using Google Account" , user?.uid as Any)
+          
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: self.myNotificationKey), object: nil,userInfo: nil)
+        })
+    }
+
+    
+
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -44,8 +81,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
     }
 
+    @available(iOS 9.0, *)
+    func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
+        -> Bool {
+            return GIDSignIn.sharedInstance().handle(url,
+                                                     sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                                                     annotation: [:])
+    }
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return GIDSignIn.sharedInstance().handle(url,
+                                                 sourceApplication: sourceApplication,
+                                                 annotation: annotation)
+        
+}
 
 }
 

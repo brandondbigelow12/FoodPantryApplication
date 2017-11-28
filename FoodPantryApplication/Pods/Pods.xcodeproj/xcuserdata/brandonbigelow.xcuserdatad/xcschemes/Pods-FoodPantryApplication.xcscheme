@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EBF6B3D45A0AA76146EA0A4B3519C01F"
+               BlueprintIdentifier = "81F6E96D288095700AD5B9AD50F92B45"
                BuildableName = "Pods_FoodPantryApplication.framework"
                BlueprintName = "Pods-FoodPantryApplication"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -36,6 +37,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -45,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EBF6B3D45A0AA76146EA0A4B3519C01F"
+            BlueprintIdentifier = "81F6E96D288095700AD5B9AD50F92B45"
             BuildableName = "Pods_FoodPantryApplication.framework"
             BlueprintName = "Pods-FoodPantryApplication"
             ReferencedContainer = "container:Pods.xcodeproj">

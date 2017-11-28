@@ -9,5 +9,8 @@ target 'FoodPantryApplication' do
 
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
+pod ‘Firebase/Database’
+pod 'Alamofire'
+pod 'GoogleSignIn'
 
 end
