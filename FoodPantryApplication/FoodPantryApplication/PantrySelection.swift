@@ -39,11 +39,11 @@ class PantrySelection : UIViewController, UIPickerViewDataSource, UIPickerViewDe
         
         Greeting()
         getFirebaseData()
-    
+        //post()
+       PickerWheel.selectedRow(inComponent: 0)
     }
     @IBAction func logoutButton(_ sender: Any) {
        
-        
     }
     
     func Greeting()
@@ -123,6 +123,7 @@ class PantrySelection : UIViewController, UIPickerViewDataSource, UIPickerViewDe
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        pantrySelectionLabel.text = Organizations[row]
         return Organizations[row]
     }
     
@@ -149,10 +150,19 @@ class PantrySelection : UIViewController, UIPickerViewDataSource, UIPickerViewDe
         SecondController.SelectedOrganization = SelectedOrganization
         
     }
-    
-    
-
-    
       
         
+}
+extension UIViewController
+{
+    @objc func swipeAction(swipe : UISwipeGestureRecognizer)
+    {
+        switch swipe.direction.rawValue {
+        case 1:
+            performSegue(withIdentifier: "goLeft", sender: nil)
+            break
+        default:
+            break
+        }
+    }
 }

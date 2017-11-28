@@ -19,31 +19,44 @@ class InventoryPage : UIViewController, UITableViewDelegate, UITableViewDataSour
     var databaseHandle : DatabaseHandle!
     
     
+    
     //let list = ["Milk", "Honey", "Bread" , "Tacos", "Water", "Eggs"]
     var itemTitlearray = [String!]()
-    var itemQuantityarray = [String!]()
     var itemImageURL = [String!]()
+    var itemQuantityarray = [Int32!]()
+    
+    
+    
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        databaseRef.database.reference().child("Pantries/OLG/Items/").observe(.childAdded, with: { ( snapshot) in
+      
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(swipe:)))
+        rightSwipe.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(rightSwipe)
+        
+        databaseRef.database.reference().child("Pantries/\(SelectedOrganization)/Items/").observe(.childAdded, with: { ( snapshot) in
             
             if let snapDict = snapshot.value as? NSDictionary
             {
                 let imageURL = snapDict["ImageURL"] as? String!
                 let itemTitle = snapDict["ItemTitle"] as? String!
-                let Quantity = snapDict["Quantity"] as? String!
+                var quantity = snapDict["Quantity"] as! String!
+                let quantityInt: Int32? = Int32(quantity!)
                 self.itemTitlearray.append(itemTitle)
-                self.itemQuantityarray.append(Quantity)
+                self.itemQuantityarray.append(quantityInt)
                 self.itemImageURL.append(imageURL)
             }
             
            
         })
     }
-         
+    
+    @objc func backSegue() {
+        performSegue(withIdentifier: "PantrySelection", sender: self)
+    }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -54,16 +67,41 @@ class InventoryPage : UIViewController, UITableViewDelegate, UITableViewDataSour
         return UITableViewAutomaticDimension
     }
     
+    
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
       //  let cell = UITableViewCell(style:UITableViewCellStyle.default, reuseIdentifier : "cell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell" , for: indexPath) as! InventoryPageTableViewCell
         //cell.textLabel?.text = itemTitlearray[indexPath.row]
         
-        
-        cell.quantityTextLabel.text = "Quantity"
         cell.myItemName.text  = itemTitlearray[indexPath.row]
-        cell.actualQuantityTextLabel.text = itemQuantityarray[indexPath.row]
+        //cell.actualQuantityTextLabel.text = itemQuantityarray[indexPath.row]
+        
+        let quantity = (itemQuantityarray[indexPath.row])
+        
+        cell.backgroundColor = UIColor.white
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderWidth = 3
+        cell.layer.cornerRadius = 8
+        cell.clipsToBounds = true        
+        
+        switch quantity {
+        case let quantity where quantity! > 50:
+            cell.actualQuantityTextLabel.text = String(describing: "Quantity \(itemQuantityarray[indexPath.row]!)")
+            cell.contentView.backgroundColor = UIColor.green
+            break
+        case let quantity where quantity! < 50 && quantity! > 20:
+            cell.actualQuantityTextLabel.text = String(describing: "Quantity \(itemQuantityarray[indexPath.row]!)")
+            cell.contentView.backgroundColor = UIColor.yellow
+            case let quantity where quantity! < 10:
+                cell.actualQuantityTextLabel.text = String(describing: "Quantity \(itemQuantityarray[indexPath.row]!)")
+                cell.contentView.backgroundColor = UIColor.red
+        default:
+            cell.actualQuantityTextLabel.text = String(describing: "Quantity \(itemQuantityarray[indexPath.row]!)")
+            cell.contentView.backgroundColor = UIColor.purple
+            break
+        }
+        
         
         
         if let url = URL(string: itemImageURL[indexPath.row]) {
