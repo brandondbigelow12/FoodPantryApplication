@@ -11,6 +11,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import Alamofire
+import UserNotifications
 
 class PantrySelection : UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
 
@@ -27,24 +28,29 @@ class PantrySelection : UIViewController, UIPickerViewDataSource, UIPickerViewDe
     
     @IBOutlet var welcomeBanner: UILabel!
     @IBOutlet var pantrySelectionLabel: UILabel!
-
+    @IBAction func LogoutButton(_ sender: Any) {
+    }
+    
     @IBOutlet var PickerWheel: UIPickerView!
     
     let databaseRef = Database.database().reference()
     var databaseHandle : DatabaseHandle!
     
+     let loggedInUser = String()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { didAllow, error in #imageLiteral(resourceName: "LoginScreenBackground")
+            
+            
+        })
+       
         Greeting()
         getFirebaseData()
-        //post()
        PickerWheel.selectedRow(inComponent: 0)
     }
-    @IBAction func logoutButton(_ sender: Any) {
-       
-    }
+   
     
     func Greeting()
     {
@@ -54,10 +60,12 @@ class PantrySelection : UIViewController, UIPickerViewDataSource, UIPickerViewDe
             self.userProfilePicture.layer.cornerRadius = self.userProfilePicture.frame.size.width / 2
             self.userProfilePicture.clipsToBounds = true
             self.userProfilePicture.image = #imageLiteral(resourceName: "puppy")
+            self.loggedInUser == userEmail
         }
         else
         {
             welcomeBanner.text = "Welcome \(GoogleUser.getGoogleUserEmail()!)" as String!
+            self.loggedInUser == GoogleUser.getGoogleUserEmail()
             
             if let url = GoogleUser.getGoogleProfileImage()
             {
@@ -146,12 +154,37 @@ class PantrySelection : UIViewController, UIPickerViewDataSource, UIPickerViewDe
     
     override func prepare(for segue : UIStoryboardSegue, sender : Any?)
     {
-        let SecondController = segue.destination as! InventoryPage
-        SecondController.SelectedOrganization = SelectedOrganization
+        if segue.identifier == "inventoryPage"
+        {
+            let SecondController = segue.destination as! InventoryPage
+            SecondController.SelectedOrganization = SelectedOrganization
+        }
+        if segue.identifier == "LoginView"
+        {
+          
+        }
         
     }
-      
+    
+   
+    
+    @IBAction func logoutButton(_ sender: Any) {
         
+        do{
+            
+        let auth = Auth.auth()
+        try auth.signOut()
+        print("LOGGED OUT!")
+        print("LOGGED OUT USER \(auth.currentUser)")
+      
+        self.performSegue(withIdentifier: "LoginView", sender: nil)
+        }
+        catch let error as NSError
+        {
+            print(error.localizedDescription)
+        }
+        
+    }
 }
 extension UIViewController
 {

@@ -15,6 +15,12 @@ class CreateAccountView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    @IBAction func cancelButton(_ sender: Any) {
+        emailField.text = ""
+        passwordField.text = ""
+        confirmPasswordField.text = ""
+        performSegue(withIdentifier: "mainScreen", sender: nil)
+    }
     
     @IBOutlet var emailField: UITextField!
     
@@ -43,7 +49,7 @@ class CreateAccountView: UIViewController {
             if(error == nil)
             {
                 print("Created Account " + (user?.email)!)
-                self.performSegue(withIdentifier: "inventoryPage", sender: nil)
+                self.performSegue(withIdentifier: "PantrySelection", sender: nil)
                 
             }
             else
@@ -62,7 +68,7 @@ class CreateAccountView: UIViewController {
     
     override func prepare(for segue : UIStoryboardSegue, sender : Any?)
     {
-        if segue.identifier == "inventoryPage"
+        if segue.identifier == "PantrySelection"
         {
             let SecondController = segue.destination as! PantrySelection
             SecondController.userEmail = emailField.text!
