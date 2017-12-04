@@ -36,21 +36,7 @@ class LoginView: UIViewController,GIDSignInUIDelegate {
 //       let navController = navigationController!
 //        let image = #imageLiteral(resourceName: "puppy")
 //
-//        let imageView = UIImageView(image : image)
-//
-//        let bannerWidth = navController.navigationBar.frame.size.width
-//        let bannerHeight = navController.navigationBar.frame.size.height
-//
-//        let bannerX = bannerWidth / 2 - image.size.width / 2
-//        let bannerY = bannerHeight / 2 - image.size.height / 2
-//
-//        imageView.frame = CGRect(x: 0, y: 0, width: 2, height: 2)
-//        imageView.layer.cornerRadius = imageView.frame.size.width / 2
-//        imageView.clipsToBounds = true
-//        imageView.contentMode = .scaleToFill
-//
-//        navigationItem.titleView = imageView
-        
+
         
         
     }

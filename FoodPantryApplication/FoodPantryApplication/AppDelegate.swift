@@ -13,7 +13,7 @@ import FirebaseDatabase
 import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate  {
     
     let myNotificationKey = "com.FoodPantryApplication.GoogleSignIn"
     
@@ -29,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         
         return true
     }
+
+    
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
         // ...
@@ -101,7 +103,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
                                                  sourceApplication: sourceApplication,
                                                  annotation: annotation)
         
-}
+    }
 
 }
 

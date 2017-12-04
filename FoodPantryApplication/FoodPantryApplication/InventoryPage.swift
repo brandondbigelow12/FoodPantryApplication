@@ -18,8 +18,6 @@ class InventoryPage : UIViewController, UITableViewDelegate, UITableViewDataSour
     let databaseRef = Database.database().reference()
     var databaseHandle : DatabaseHandle!
     
-    
-    
     //let list = ["Milk", "Honey", "Bread" , "Tacos", "Water", "Eggs"]
     var itemTitlearray = [String!]()
     var itemImageURL = [String!]()

@@ -18,6 +18,7 @@
 		53D13F081FBE7D8000441943 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D13F061FBE7D8000441943 /* Main.storyboard */; };
 		53D13F0A1FBE7D8000441943 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53D13F091FBE7D8000441943 /* Assets.xcassets */; };
 		53D13F0D1FBE7D8000441943 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D13F0B1FBE7D8000441943 /* LaunchScreen.storyboard */; };
+		53E259DC1FD4FA8C00F13FE2 /* AddInventoryManually.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E259DB1FD4FA8C00F13FE2 /* AddInventoryManually.swift */; };
 		53EBA0B91FC4EFBB00C57DB4 /* BarcodeReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EBA0B81FC4EFBB00C57DB4 /* BarcodeReading.swift */; };
 		53EEAF541FCA77F7000E533B /* InventoryPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EEAF531FCA77F7000E533B /* InventoryPageTableViewCell.swift */; };
 		53F2BCF01FBE87F700FB3256 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F2BCEF1FBE87F700FB3256 /* GoogleToolboxForMac.framework */; };
@@ -43,6 +44,7 @@
 		53D13F091FBE7D8000441943 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53D13F0C1FBE7D8000441943 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53D13F0E1FBE7D8000441943 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53E259DB1FD4FA8C00F13FE2 /* AddInventoryManually.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInventoryManually.swift; sourceTree = "<group>"; };
 		53EBA0B81FC4EFBB00C57DB4 /* BarcodeReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeReading.swift; sourceTree = "<group>"; };
 		53EEAF531FCA77F7000E533B /* InventoryPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryPageTableViewCell.swift; sourceTree = "<group>"; };
 		53F2BCEF1FBE87F700FB3256 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleToolboxForMac.framework; path = "../../../Library/Developer/Xcode/DerivedData/FoodPantryApplication-azuqobogzujpxqgblmatwevcckzl/Build/Products/Debug-iphonesimulator/GoogleToolboxForMac/GoogleToolboxForMac.framework"; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				53FCA3191FCB61E4006FF820 /* GoogleUser.swift */,
 				53D13F041FBE7D8000441943 /* LoginView.swift */,
 				53D13F061FBE7D8000441943 /* Main.storyboard */,
+				53E259DB1FD4FA8C00F13FE2 /* AddInventoryManually.swift */,
 				5380C54C1FC3D641001F4909 /* InventoryPage.swift */,
 				53EEAF531FCA77F7000E533B /* InventoryPageTableViewCell.swift */,
 				5325D1CD1FC283BC0081278D /* PantrySelection.swift */,
@@ -282,6 +285,7 @@
 				5380C54D1FC3D641001F4909 /* InventoryPage.swift in Sources */,
 				5325D1CE1FC283BC0081278D /* PantrySelection.swift in Sources */,
 				53D13F051FBE7D8000441943 /* LoginView.swift in Sources */,
+				53E259DC1FD4FA8C00F13FE2 /* AddInventoryManually.swift in Sources */,
 				53D13F031FBE7D8000441943 /* AppDelegate.swift in Sources */,
 				53EBA0B91FC4EFBB00C57DB4 /* BarcodeReading.swift in Sources */,
 			);
